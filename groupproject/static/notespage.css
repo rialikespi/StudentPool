@@ -1,0 +1,125 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Basic styling for the navbar */
+
+
+.label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+/* Styling for the text input section */
+.text-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.text-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-size: 16px;
+}
+.text-section button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Styling for the stars and heart button */
+.rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.star {
+    font-size: 20px;
+    cursor: pointer;
+    color: #ccc;
+    margin-right: 5px;
+}
+.star.active {
+    color: #f7d42d;
+}
+.heart {
+    font-size: 20px;
+    cursor: pointer;
+    color: #ccc;
+    margin-left: 10px;
+}
+.heart.active {
+    color: #f44336;
+}
+
+/* Styling for the comments section */
+.comment-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.comment-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.comment-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.comment-section th, .comment-section td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.comment-section th {
+    background-color: #f2f2f2;
+}
+.comment-section input[type="text"] {
+    width: calc(100% - 110px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.comment-section button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Styling for the user profile section */
+.user-profile {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}

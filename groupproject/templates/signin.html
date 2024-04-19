@@ -1,0 +1,28 @@
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'newstyle.css' %}">
+</head>
+<header>
+        <img src="{% static 'logo.png' %}" alt="Logo" class= "logo-signin">
+    
+</header>
+
+<body>
+
+    <div class ="signin container">
+        <h1>Sign In</h1>
+
+    <p>Please use your university email to login to your account</p>
+    <hr>
+
+<form method="POST" class="form-group" action="{% url 'signin' %}">
+  {% csrf_token %}
+  {{ form }}
+  <p>Don't have an account? <a href="{% url 'signup' %}" style="color: red;">Create one</a></p>
+
+  <button type="submit" class="btn btn-success">Login</button>
+</form>
+</div>
+</body>

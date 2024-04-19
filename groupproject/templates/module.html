@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+    }
+    header{
+      background-color: white;
+    }
+
+    .inner-main-nav {
+      max-width: 1170px;
+      margin: auto;
+      padding: -10px 20px;
+
+    }
+    .inner-main-nav ul{
+     text-align: right;
+      margin: 0;
+      padding: 20px 40px;
+
+    }
+    .inner-main-nav ul li{
+       float: none;
+       display: inline-block;
+    }
+    .inner-main-nav ul li:nth-child(1),
+    .inner-main-nav ul li:nth-child(2),
+    .inner-main-nav ul li:nth-child(3)
+    {
+
+      float:left;
+
+    }
+
+    .inner-main-nav ul li:last-child{
+      float:right;
+    }
+
+    .inner-main-nav ul li a 
+    {
+      margin: -10px 35px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color: #27278b;
+      text-decoration: none;
+      font-size: 17px;
+
+    }
+
+    .logo{
+
+      width: 70px;
+      height: 50px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -5px;
+    }
+
+    .logo img 
+    {
+      width: 100%
+
+    }
+
+    section {
+      padding: 20px;
+    }
+    .dashboard {
+      display: grid;
+      grid-template-columns: 50% 45%;
+      grid-column-gap: 40px;
+      grid-row-gap: 20px;
+    }
+
+    .dashboard h1{
+      font-size: 30px;
+      display: inline-block;
+    }
+    .card {
+      background-color: white;
+      padding: 0px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-top: -20px;
+    }
+
+    .card-filters {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-bottom: 2px solid #fafafa; /* Grey border on bottom */
+    }
+
+    .card-filters a {
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+      width: calc(25% - 10px);
+      text-align: center;
+    }
+
+    .card-filters a.plus {
+      background-color: navy;
+      color: white;
+      padding: 0px; /* Adjust padding */
+      border-radius: 5px; /* Add border-radius */
+      height: 20px; /* Fill the height */
+      width: 50px; 
+      cursor: pointer; /* Add cursor pointer */
+    }
+
+
+    .question {
+      background-color: white;
+      border-top: 2px solid transparent; /* Transparent border on top */
+      border-right: 0px solid transparent; /* Transparent border on right */
+      border-left: 0px solid transparent; /* Transparent border on left */
+      border-bottom: 3px solid #fafafa; /* Grey border on bottom */
+      padding: 20px;
+      margin-bottom: 10px;
+      position: relative; /* Added */
+    }
+
+    .question a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .note {
+      background-color: white;
+      border-top: 2px solid transparent; /* Transparent border on top */
+      border-right: 0px solid transparent; /* Transparent border on right */
+      border-left: 0px solid transparent; /* Transparent border on left */
+      border-bottom: 3px solid #fafafa; /* Grey border on bottom */
+      padding: 20px;
+      margin-bottom: 10px;
+      position: relative; /* Added */
+    }
+
+    .note a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .like-dislike {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      background-color: #fafafa;
+      color: #fafafa;
+    }
+
+    .like-dislike span {
+      margin-right: 5px;
+      font-size: 20px;
+      cursor: pointer; /* Add cursor pointer */
+    }
+
+
+  </style>
+</head>
+<body>
+  <header>
+    {% load static %}
+    <div class="logo">
+      <img src="{% static 'logo.png' %}" alt="Logo">
+    </div>
+    <div class="inner-main-nav">
+      <ul> 
+          <li><a href="{% url 'home' %}" class = "button">Home </a></li>
+          <li><a href="{% url 'profile' %}" class = "button">Profile</a></li>
+          <li><a href="{% url 'logout' %}" class = "button">Log out</a></li>
+      </ul>
+    </div>
+  </header>
+  <section>
+    <div class="dashboard">
+      <h1>Questions</h1>
+      <h1>Notes</h1>
+      <div class="card">
+        <div class="card-filters">
+          <a href="#">Top</a>
+          <a href="#" class="plus" onclick="addQuestion(this)">+</a> <!-- Plus button -->
+        </div>
+        <div class="question-section">
+          {% for question in questions %}
+          <div class="question">
+            <a href="#">{{ question.title }}</a>
+            <a href="#"> {{question.text}}</a>
+            <div class="author-info">{{ question.userID }}</div>
+<!--             {% for answer in answers %}
+              {%if answer.questionID == question.questionID%}
+                <div class="answer">
+                  <p>{{answer.text}} </p>
+                  <div class="author-info">{{answer.userID}}</div>
+                </div>
+              {%endif%}
+            {% endfor %} -->
+            <div class="like-dislike">
+              <span onclick="like(this)">&#9650;</span> 
+              <span class="like-count">0</span>
+              <span onclick="dislike(this)">&#9660;</span> 
+              <span class="dislike-count">0</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="answer-question">
+          {% for answer in answers %}
+            {% if answer.questionID == question.questionID %}
+              <div class="answer">
+                <p>
+                  {{answer.questionID}}: {{answer.text}}
+                </p>
+                <div class="author-info">{{answer.userID}}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-filters">
+          <!-- <a href="#">Favourites</a>
+          <a href="#">Friends</a> -->
+          <a href="#">Top</a> 
+          <a href= "{% url 'upload_note' %}" class="button" onclick="addNote(this)">+</a> <!-- Plus button -->
+        </div>
+
+        <div class="notes-section">
+          {% for note in notes %}
+          <div class="note">
+            <!-- note_detail page -->
+            <a href="{% url 'note_detail' note.pk %}">{{ note.title }}</a>
+            <div class="author-info"><strong>Posted by:</strong> {{ note.user }}</div>
+            <!-- <div class="rating">
+              
+              <strong>Rating:</strong> {{ note.rating }} out of 5
+            </div> -->
+            <div class="like-dislike">
+              <span onclick="like(this)">&#9650;</span>
+              <span class="like-count">0</span>
+              <span onclick="dislike(this)">&#9660;</span>
+              <span class="dislike-count">0</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+
+  </section>
+
+  <script>
+    // Function to add a new question
+    function addQuestion(element) {
+      var card = element.closest('.card');
+      var questionContainer = card.querySelector('.question');
+      var newQuestion = document.createElement('div');
+      newQuestion.classList.add('question');
+      newQuestion.innerHTML = `
+        <input type="text" placeholder="Enter question title">
+        <div class="author-info">Author: You</div>
+        <div class="like-dislike">
+          <span onclick="like(this)">&#9650;</span>
+          <span class="like-count">0</span>
+          <span onclick="dislike(this)">&#9660;</span>
+          <span class="dislike-count">0</span>
+        </div>
+      `;
+      questionContainer.parentNode.insertBefore(newQuestion, questionContainer.nextSibling);
+    }
+
+    // Function to add a new note
+    function addNote(element) {
+      var card = element.closest('.card');
+      var noteContainer = card.querySelector('.question');
+      var newNote = document.createElement('div');
+      newNote.classList.add('question');
+      newNote.innerHTML = `
+        <input type="text" placeholder="Enter note title">
+        <div class="author-info">Author: You</div>
+        <div class="like-dislike">
+          <span onclick="like(this)">&#9650;</span>
+          <span class="like-count">0</span>
+          <span onclick="dislike(this)">&#9660;</span>
+          <span class="dislike-count">0</span>
+        </div>
+      `;
+      noteContainer.parentNode.insertBefore(newNote, noteContainer.nextSibling);
+    }
+    
+
+    // Function to handle liking a question
+    function like(element) {
+      var likeCount = element.nextSibling;
+      likeCount.textContent = parseInt(likeCount.textContent) + 1;
+      element.style.color = 'navy';
+    }
+
+    // Function to handle disliking a question
+    function dislike(element) {
+      var dislikeCount = element.nextSibling.nextSibling.nextSibling;
+      dislikeCount.textContent = parseInt(dislikeCount.textContent) + 1;
+      element.style.color = 'navy';
+    }
+  </script>
+</body>
+</html>

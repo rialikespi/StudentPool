@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'notespage.css' %}">
+    <link rel="stylesheet" href="{% static 'newstyle.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+    
+        .inner-main-nav {
+            max-width: 1170px;
+            margin: auto;
+            padding: -10px 20px;
+        }
+        .inner-main-nav ul {
+            text-align: right;
+            margin: 0;
+            padding: 20px 40px;
+        }
+    
+        .inner-main-nav ul li {
+            float: none;
+            display: inline-block;
+        }
+    
+        .inner-main-nav ul li:nth-child(1),
+        .inner-main-nav ul li:nth-child(2),
+        .inner-main-nav ul li:nth-child(3) {
+            float: left;
+        }
+    
+        .inner-main-nav ul li:last-child {
+            float: right; /* Move the last list item (Log out) to the right */
+        }
+    
+        .inner-main-nav ul li a {
+            margin: -10px 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            color: #27278b;
+            text-decoration: none;
+            font-size: 17px;
+        }
+    
+        .logo {
+            width: 70px;
+            height: 50px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -5px;
+        }
+    
+        .logo-img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="Logo"> 
+        </div> 
+        <div class="inner-main-nav">
+            <ul> 
+                <li><a href="{% url 'home' %}" class = "button">Home </a></li>
+                <li><a href="{% url 'dashboard' %}" class = "button">Dashboard</a></li>
+                <li><a href="{% url 'profile' %}" class = "button">Profile</a></li>
+                <li><a href="{% url 'logout' %}" class = "button">Log out</a></li>
+            </ul>
+          </div>
+    </header>
+
+    <div class="document">
+        <div class="content">
+            <h1>Upload your note</h1>
+            <form action="{% url 'upload_note' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+
+
+    </div>
+    
+</body>
+</html>
+
+

@@ -1,0 +1,56 @@
+/*settings styling*/
+.settings-design {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    padding: 20px;
+}
+
+fieldset {
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+fieldset div {
+    margin-bottom: 15px; /* Adjust spacing between elements */
+}
+
+legend {
+    font-weight: bold;
+}
+
+.text-input,
+.password-input,
+.file-input{
+  border: 1px solid #ccc;
+  width: 80%; 
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 10px; 
+  margin-right: 20px;
+  margin-bottom: 15px
+}
+
+
+input[type="submit"],
+.exit-button,
+.custom-file-input-label {
+    width: 80%;
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: inline-block; 
+}
+
+input[type="submit"]:hover,
+.exit-button:hover,
+.custom-file-input-label:hover {
+    background-color: lightgray;
+}
+
+/*end of settings styling/*

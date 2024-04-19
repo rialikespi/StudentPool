@@ -1,0 +1,126 @@
+<head> 
+
+  <title>{{user.first_name}} {{user.last_name}}'s profile</title>
+  
+  {% load static %}
+  <link rel="stylesheet" href="{%static 'newstyle.css' %}">
+
+  <style>
+    
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+    }
+
+    .inner-main-nav {
+      max-width: 1170px;
+      margin: auto;
+      padding: -10px 20px;
+
+    }
+    .inner-main-nav ul {
+  text-align: right;
+  margin: 0;
+  padding: 20px 40px;
+}
+
+.inner-main-nav ul li {
+  float: none;
+  display: inline-block;
+}
+
+.inner-main-nav ul li:nth-child(1),
+.inner-main-nav ul li:nth-child(2),
+.inner-main-nav ul li:nth-child(3) {
+  float: left;
+}
+
+.inner-main-nav ul li:last-child {
+  float: right; /* Move the last list item (Log out) to the right */
+}
+
+.inner-main-nav ul li a {
+  margin: -10px 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #27278b;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+
+
+    .logo{
+
+      width: 70px;
+            height: 50px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -5px;
+
+    }
+
+    .logo-img 
+    {
+      width: 100px;
+      height: 100px;
+
+    }
+
+    .profile-container {
+      margin-top: 20;
+      margin-left: 30;
+    }
+
+    .welcome-back {
+      margin-top: 50;
+      margin-left: 20;
+    }
+  </style>
+
+</head>
+<body>
+ <header>
+
+   <div class = "inner-main-nav">
+     <ul> 
+      <li><a href="{% url 'home' %}" class = "button">Home </a></li>
+       <li><a href="{% url 'dashboard' %}" class = "button">Dashboard</a></li>
+       <li><a href="{% url 'user settings' %}">Settings </a></li>
+       <li><a href="{% url 'logout' %}" class = "button">Log out</a></li>
+
+     </ul>
+     <div class = "logo">
+      <img src="{% static 'logo.png' %}" alt="Logo" class="logo-img">
+   </div>
+
+   </div>
+
+   <div class="welcome-back">
+      <h1>Welcome back, {{user.first_name}}</h1>
+   </div>
+  
+   </header>
+
+
+
+ <div class="profile-dashboard-content">
+   <div class ="profile-container">
+
+
+      <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="profile-image">
+      <h3> {{user.first_name}} {{user.last_name}} </h3>
+   </div>
+
+   </div>
+
+
+   
+ </div>
+</body>
+</html>

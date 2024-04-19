@@ -1,0 +1,112 @@
+/* Nav bar styling */
+.inner-main-nav {
+  max-width: 1170px;
+  margin: auto;
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Distribute items evenly along the main axis */
+  align-items: center; /* Center items vertically */
+  padding: 20px 0; /* Adjust padding */
+}
+
+/* Style for the logo */
+.logo {
+  width: 150px;
+  height: 100px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+/* Style for the navigation links */
+.inner-main-nav ul {
+  list-style: none; /* Remove default list styles */
+  padding: 0;
+  margin: 0;
+}
+
+.inner-main-nav ul li {
+  display: inline-block;
+  margin-right: 20px; /* Adjust spacing between links */
+}
+
+.inner-main-nav ul li:last-child {
+  margin-right: 0; /* Remove margin from the last link */
+}
+
+.inner-main-nav ul li a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #27278b;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* End of nav bar styling */
+
+body {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+h2 {
+  font-size: 48px; /* Increase the font size */
+  text-align: center; /* Center-align the text */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+
+/* start of index page styling */
+indexbutton {
+  margin: 0 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #1e90ff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indexsection {
+  margin: 10px;
+  padding: 1%;
+  width: 90%;
+  height: 650px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+
+.indexsection-content {
+
+  justify-content: flex-start; 
+  align-items: center; 
+  width: 90%; 
+  margin: 0 auto; 
+
+}
+
+.indexsection-image {
+  width:300px;
+  height: 300px;
+  border-radius: 50%;
+  
+}
+
+/* end of index page styling                                                                    */

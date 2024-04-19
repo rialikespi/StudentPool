@@ -1,0 +1,466 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Nav bar styling */
+.inner-main-nav {
+  max-width: 1170px;
+  margin: auto;
+
+}
+.inner-main-nav ul{
+ text-align: right;
+  margin: 0;
+  padding: 20px 40px;
+
+}
+.inner-main-nav ul li{
+   float: none;
+   display: inline-block;
+}
+.inner-main-nav ul li:nth-child(1),
+.inner-main-nav ul li:nth-child(2)
+{
+
+  float:left;
+
+}
+
+.inner-main-nav ul li a 
+{
+  margin: 0 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #27278b;
+  text-decoration: none;
+
+}
+
+.logo {
+
+  width: 150px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+}
+
+.logo img 
+{
+  width: 100%
+
+}
+.logo-signin{
+
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 65%;
+  transform: translateX(-50%);
+  top: 20px;
+}
+
+.logo-signin img 
+{
+  width: 50%
+
+}
+
+
+/* End of nav bar styling */
+
+/* start of signin styling */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Full-width input fields */
+input[type=text],
+input[type=password],
+input[type=email]
+ {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border-radius: 8px;
+  background-color: #9fd2ff;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus {
+  background-color: #9fd2ff;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+.signin button {
+  background-color: #fff; /* White color for buttons */
+  color: #0a1b61; /* Navy color for text */
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+  color: #fff; /* White color for cancel button */
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,
+.signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.signin container {
+  padding: 50px;
+  color: white;
+
+  
+
+}
+.signin container p, h1,h2 {
+
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn,
+  .signupbtn {
+    width: 50%;
+  }
+}
+
+/* Center the sign-in form */
+.signin {
+  width: 45%; /* Take up a third of the width */
+  margin: 0 auto; /* Center horizontally */
+}
+
+/* Styling the sign-in box */
+.signin {
+  background-color: #4f61a7; /* Navy color for the box */
+  padding: 20px;
+  border-radius: 8px;
+  
+  color: #ffffff;
+}
+
+/* end of signin styling */
+
+
+
+/* start of notespage styling */
+
+.notes-content h2 {
+  font-size: 48px; /* Match the font size */
+  text-align: center; /* Center-align the text */
+}
+
+/* Styling for the text input section */
+.document {  
+  border: 2px solid #ccc;
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#input-text {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #3d3d96;
+  border-radius: 5px;
+  resize: none;
+  font-size: 16px;
+}
+#download-btn {
+  background-color: #3d3d96;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Styling for the stars and heart button */
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.star {
+  font-size: 20px;
+  cursor: pointer;
+  color: #ccc;
+  margin-right: 5px;
+}
+.star.active {
+  color: #f7d42d;
+}
+.heart {
+  font-size: 20px;
+  cursor: pointer;
+  color: #ccc;
+  margin-left: 10px;
+}
+.heart.active {
+  color: #f44336;
+}
+
+/* Styling for the comments section */
+ .comment-section {
+  border: 2px solid #ccc;
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
+
+ .comment-section h2 {
+  margin-left: auto;
+  margin-top: 0;
+  margin-bottom: 20px;
+} 
+
+#comment-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comment-section th,
+.comment-section td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.comment-section th {
+  
+  background-color: #f2f2f2;
+}
+
+#comment-input[type="text"] {
+
+  border: 2px solid #ccc;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+#add-comment-btn {
+  background-color: #3d3d96;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Styling for the user profile section */
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.user-profile {
+  margin-top: 20px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.user-profile span {
+  font-size: 20px; /* Increase the font size */
+}
+
+.user-profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+
+/* end of notespage styling */
+
+
+
+
+
+/* start of index page styling */
+
+indexbutton {
+  margin: 0 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #1e90ff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.indexsection {
+  margin: 10px;
+  padding: 1%;
+  width: 90%;
+  height: 650px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+
+
+
+.index-section-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.indexsection-text {
+  width: 70%;
+  text-align: left;
+}
+
+
+.indexsection-image {
+  width: 30%; /* Set the width of the image */
+  height: auto; /* Let the height adjust automatically based on the width */
+  object-fit: cover; /* Maintain aspect ratio while covering the area */
+  border-radius: 5px; /* Optional: Add rounded corners */
+
+  display: flex;
+  justify-content: centre;
+  align-items: centre;
+  
+  
+}
+
+
+@media (max-width: 768px) {
+  .indexsection-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .indexsection-text,
+  .indexsection-image {
+    width: 100%;
+  }
+}
+
+/*                                   end of index page styling                                                                    */
+
+/* start of profile page styling */
+
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-container h3,
+.profile-container h1 {
+  margin: 15;
+}
+
+.dashboard-content {
+  padding: 50px;
+}
+
+.profile-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -60px; /* Adjust the margin to move the buttons up */
+}
+
+.top-row,
+.bottom-row {
+  display: flex;
+}
+
+.profile-button-container button {
+  margin: 5px; /* Adjust the margin to increase space between buttons */
+  padding: 25px; /* Increase padding to make buttons bigger */
+  font-size: 20px; /* Increase font size */
+  width: 160px; /* Increase width for slightly larger buttons */
+  height: 160px; /* Increase height for slightly larger buttons */
+  border: none;
+  border-radius: 10px;
+}
+
+/* New CSS for the friends list section */
+.friends-list {
+  margin-top: 20px;
+}
+
+#search {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.friend-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.friend-items li {
+  margin-bottom: 5px;
+}
+
+/* Example styles for friend list items */
+.friend-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* end of profile page styling */

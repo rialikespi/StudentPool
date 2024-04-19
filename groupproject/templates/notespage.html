@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    
+    <link rel="stylesheet" href="{%static 'notespage.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link rel="stylesheet" href="{%static 'newstyle.css' %}">
+    <link rel="stylesheet" href="{%static 'reviewstars.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+    
+        .inner-main-nav {
+            max-width: 1170px;
+            margin: auto;
+            padding: -10px 20px;
+        }
+        .inner-main-nav ul {
+            text-align: right;
+            margin: 0;
+            padding: 20px 40px;
+        }
+    
+        .inner-main-nav ul li {
+            float: none;
+            display: inline-block;
+        }
+    
+        .inner-main-nav ul li:nth-child(1),
+        .inner-main-nav ul li:nth-child(2),
+        .inner-main-nav ul li:nth-child(3) {
+            float: left;
+        }
+    
+        .inner-main-nav ul li:last-child {
+            float: right; /* Move the last list item (Log out) to the right */
+        }
+    
+        .inner-main-nav ul li a {
+            margin: -10px 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            color: #27278b;
+            text-decoration: none;
+            font-size: 17px;
+        }
+    
+        .logo {
+            width: 70px;
+            height: 50px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -5px;
+        }
+    
+        .logo-img {
+            width: 100%;
+        }
+        .button-style {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: navy;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+    </style>    
+    
+</head>
+<body>
+    <header>
+        <!-- <div class="logo">
+            <img src="logo.png" alt="Logo"> 
+        </div> -->
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="Logo"> 
+        </div> 
+        <div class="inner-main-nav">
+            <ul> 
+                <li><a href="{% url 'home' %}" class = "button">Home </a></li>
+                <li><a href="{% url 'dashboard' %}" class = "button">Dashboard</a></li>
+                <li><a href="{% url 'profile' %}" class = "button">Profile</a></li>
+                <li><a href="{% url 'logout' %}" class = "button">Log out</a></li>
+            </ul>
+          </div>
+    </header>
+
+    <div class="content">
+        <div class="document">
+
+            <div class="document-2">
+                <h2>{{ note.title }}</h2>
+                <p>{{ note.content }}</p>
+                <br>
+                <a href="{{ note.file.url }}" id="download-btn" download>Download Note</a>
+            </div>
+            <br>
+        </div>
+
+       <div class="comment-section">
+        <h3>Note Reviews </h3>
+
+    <!-- Review Submission  -->
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="rate">
+        <input type="radio" id="star5" name="rating" value="5" required /><label class="full" for="star5" title="5 stars"></label>
+        <input type="radio" id="star4" name="rating" value="4" required /><label class="full" for="star4" title="4 stars"></label>
+        <input type="radio" id="star3" name="rating" value="3" required /><label class="full" for="star3" title="3 stars"></label>
+        <input type="radio" id="star2" name="rating" value="2" required /><label class="full" for="star2" title="2 stars"></label>
+        <input type="radio" id="star1" name="rating" value="1" required /><label class="full" for="star1" title="1 star"></label>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div>
+        {{ form.title.label_tag }} {{ form.title }}
+    </div>
+    <div>
+        {{ form.content.label_tag }} {{ form.content }}
+    </div>
+    <br>
+    <button type="submit" class="button-style">Submit Review</button>
+    
+</form>
+
+        <!-- Display Reviews and Average Rating -->
+        <div>
+            <h3>Reviews</h3>
+            <p>Average Rating: {% if average_rating %}{{ average_rating|floatformat:1 }} out of 5 stars{% else %}No ratings yet{% endif %} ({{ count_reviews }} reviews)</p>
+            {% for review in reviews %}
+            <div>
+                <strong>{{ review.user.username }}</strong> reviewed:
+                <p>
+                    {% for i in "12345" %}
+                    <span class="{% if forloop.counter <= review.rating %}fa fa-star{% else %}fa fa-star-o{% endif %}"></span>
+                    {% endfor %}
+                </p>
+                <strong>{{ review.title }}</strong>
+                <p>{{ review.content }}</p>
+            </div>
+            {% empty %}
+            <p>No reviews yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</html>
